@@ -3,6 +3,7 @@ import * as BooksAPI from './BooksAPI'
 import './App.css'
 import BookSearch from './BookSearch';
 import DisplayShelves from './DisplayShelves';
+import { map, uniq, startCase, toPairs, fromPairs } from 'lodash';
 
 class BooksApp extends React.Component {
   state = {
@@ -11,8 +12,9 @@ class BooksApp extends React.Component {
   componentDidMount() {
     BooksAPI.getAll()
     .then((books) => {
-      let shelves =[...new Set(books.map(shelf => shelf.shelf))]
-
+      let shelves = [...uniq((books.map(e => 
+        e.shelf,       
+        )))];
       this.setState(() => ({
         books,
         shelves
