@@ -1,11 +1,10 @@
-import React from 'react'
+import React from 'react';
 // import * as BooksAPI from './BooksAPI'
 import BookShelf from './BookShelf';
+import { Link } from 'react-router-dom';
 
 
 class DisplayShelves extends React.Component {
-  state = {
-  }
 
   render() {
     const { shelves, books, moveBook} = this.props;
@@ -33,9 +32,9 @@ class DisplayShelves extends React.Component {
                 </ul>                
               </div>
             </div>
-            <div className="open-search">
-              <button onClick={() => this.setState({ showSearchPage: true })}>Add a book</button>
-            </div>
+            <Link className="open-search" to='/search' >
+              <button>Add a book</button>
+            </Link> 
           </div>
       </div>
     )

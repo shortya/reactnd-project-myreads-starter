@@ -17,6 +17,7 @@ class BookShelf extends React.Component {
                   shelves={shelves}
                   book={books[key]}
                   allBooks={allBooks}
+                  img={books[key].imageLinks ? books[key].imageLinks.smallThumbnail : 'https://www.placecage.com/128/193' }
                   moveBook={moveBook}
                    />)
                 ) 
