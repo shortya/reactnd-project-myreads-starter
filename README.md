@@ -9,6 +9,7 @@ complete project reqs as set out in rubric: https://review.udacity.com/#!/rubric
 
 To do:
 
+optimise stateless and functional components
 Add transitions
 
 Usage:
