@@ -16,22 +16,13 @@ class BooksApp extends React.Component {
       this.setState(() => ({
         books
       }))
-      console.log(books)
     })
   };
 
-  searchList = (query) => {
-    BooksAPI.search(query)
-  }
-
   moveBook = (newShelf, book) => {
-    console.log(book)
     BooksAPI.update(book, newShelf)
-    const old = {id: "nggnmAEACAAJ"}
-    BooksAPI.update(old, 'read')
     //1. take a copy of state
     const books = [...this.state.books];
-    console.log(books)
     //2. filter to find the book and change value
     books.filter((b) => {
       return b.id === book.id ? b.shelf = newShelf : null
@@ -42,15 +33,12 @@ class BooksApp extends React.Component {
 
   render() {
 
-    const search = BooksAPI.search('li');
-
-    console.log('search', search)
-
     const shelves = {
       0: "currentlyReading",
       1: "wantToRead",
       2: "read"
     };
+
     return (
       <div className="app">
         <Route exact path='/' render={() => (
@@ -64,12 +52,10 @@ class BooksApp extends React.Component {
           <BookSearch
           shelves={shelves}
           moveBook={this.moveBook}
-          searchList={this.searchList}
           books={this.state.books}
           />
         )}/>
       </div>
-
     )
   }
 }

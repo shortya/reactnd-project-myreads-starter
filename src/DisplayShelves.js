@@ -1,8 +1,6 @@
 import React from 'react';
-// import * as BooksAPI from './BooksAPI'
 import BookShelf from './BookShelf';
 import { Link } from 'react-router-dom';
-
 
 class DisplayShelves extends React.Component {
 
@@ -29,7 +27,7 @@ class DisplayShelves extends React.Component {
                       shelves={shelves}
                       moveBook={moveBook}
                        />)}
-                </ul>                
+                </ul>
               </div>
             </div>
             <Link className="open-search" to='/search' >
