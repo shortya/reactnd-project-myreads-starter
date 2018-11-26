@@ -5,7 +5,7 @@ import { startCase } from 'lodash';
 class BookShelf extends React.Component {
 
   render() {
-    const { shelf, books, shelves } = this.props;
+    const { shelf, books, allBooks, shelves, moveBook } = this.props;
     return (
       <div className="app">
         <div className="bookshelf">
@@ -15,7 +15,10 @@ class BookShelf extends React.Component {
               {Object.keys(books).map(key => 
                 (<Book key ={key}
                   shelves={shelves}
-                  details={books[key]} />)
+                  book={books[key]}
+                  allBooks={allBooks}
+                  moveBook={moveBook}
+                   />)
                 ) 
               } 
             </ol>

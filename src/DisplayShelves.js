@@ -8,7 +8,7 @@ class DisplayShelves extends React.Component {
   }
 
   render() {
-    const { shelves, books } = this.props;
+    const { shelves, books, moveBook} = this.props;
 
     return (
       <div className="app">
@@ -20,13 +20,16 @@ class DisplayShelves extends React.Component {
               <div>
                 <ul>
                   {Object.keys(shelves).map(key => 
-                      <BookShelf 
-                        key ={key}
-                        books={books.filter((b) => {
-                          return b.shelf === shelves[key]
-                        })}
-                        shelf={shelves[key]}
-                        shelves={shelves} />)}
+                    <BookShelf 
+                      key ={key}
+                      allBooks={books}
+                      books={books.filter((b) => {
+                        return b.shelf === shelves[key]
+                      })}
+                      shelf={shelves[key]}
+                      shelves={shelves}
+                      moveBook={moveBook}
+                       />)}
                 </ul>                
               </div>
             </div>

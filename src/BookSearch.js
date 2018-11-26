@@ -1,10 +1,13 @@
 import React from 'react'
 // import ReactDOM from 'react-dom'
+import Book from './Book';
 
 
 class BookSearch extends React.Component {
 
   render() {
+    const { shelf, books, allBooks, shelves, moveBook } = this.props;
+    
     return (
       <div className="search-books">
         <div className="search-books-bar">
@@ -14,7 +17,17 @@ class BookSearch extends React.Component {
             </div>
         </div>
         <div className="search-books-results">
-            <ol className="books-grid"></ol>
+          <ol className="books-grid">
+                {Object.keys(books).map(key => 
+                  (<Book key ={key}
+                    shelves={shelves}
+                    book={books[key]}
+                    allBooks={allBooks}
+                    moveBook={moveBook}
+                    />)
+                  ) 
+                } 
+              </ol>
         </div>
       </div>
     )
